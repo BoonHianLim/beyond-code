@@ -1,5 +1,13 @@
 # Beyond Code: Main Website
 
+Quick Links:
+[[Abstract]](https://openreview.net/forum?id=JRjTtoJman)
+[[Paper]](/beyond-code.pdf)
+[[Dr NTU]](https://hdl.handle.net/10356/184126)
+[[Experiment]](https://github.com/BoonHianLim/partial-UI-generation)
+[[Dataset]](https://huggingface.co/datasets/csbhlim222/partial-UI-generation-dataset) 
+[[Proof-of-Concept]](https://github.com/BoonHianLim/beyond-code-website-builder)
+
 This is the repository that contains source code for the [Beyond code website](https://boonhianlim.github.io/beyond-code/).
 
 If you find the paper useful for your work please cite:
