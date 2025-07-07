@@ -77,7 +77,18 @@
                   </span>
                   <span class="link-block">
                     <a
-                      href="https://github.com/BoonHianLim/beyond-code/blob/577476251edb436ed049e8eb161e6e2346c76da7/beyond-code.pdf"
+                      href="https://github.com/BoonHianLim/beyond-code/blob/main/static/pdf/poster.pdf"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-image"></i>
+                      </span>
+                      <span>Poster</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/BoonHianLim/beyond-code/blob/main/static/pdf/beyond-code.pdf"
                       class="external-link button is-normal is-rounded is-dark"
                     >
                       <span class="icon">
@@ -94,7 +105,7 @@
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
                       </span>
-                      <span>Dr NTU</span>
+                      <span>Paper @ Dr NTU</span>
                     </a>
                   </span>
                   <br />
@@ -178,11 +189,30 @@
     <section class="section">
       <div class="container is-max-desktop content">
         <h2 class="title is-3">Introduction</h2>
+        <h2 class="title is-4">Motivation</h2>
+        <p>
+          Despite the easy-to-use features of website builders and the large
+          population adopting website builders,
+          <b
+            >the user experience of building a website on such platforms is not
+            necessarily good.</b
+          >
+        </p>
+        <h2 class="title is-4">Methodology</h2>
         <p>
           We attempt to understand the current landscape of website builders. We
           achieve this by conducting a <b>two-phase approach</b> to identify the
           <b>limitations</b> and <b>opportunities for innovation</b> in website
-          builders.
+          builders. <br /><br />
+          For the 1st phase, we aim to understand the
+          <u>limitations of existing website builders</u> by conducting a
+          <b>case study</b> on existing website builders and a
+          <b>user survey</b> to gather insights from users. <br /><br />
+          For the 2nd phase, we propose a set of features that can address the
+          limitations identified in the first phase. To
+          <u>ascertain the technical feasibility</u> of these features, we
+          conduct <b>experiments</b> and <b>implementation</b> to prove that
+          these features can be implemented in a website builder.
         </p>
 
         <img src="./static/images/methodology.png" alt="Methodology" />
@@ -191,24 +221,195 @@
 
     <section class="section">
       <div class="container is-max-desktop content">
-        <h2 class="title is-3">Limitations in Website Builders</h2>
+        <h2 class="title is-3">Limitations of Website Builders</h2>
         <p>
           We found <b>lack of customisability</b>,
           <b>inaccurate documentation</b>, and <b>poor versioning tools</b> to
           be the most common limitations in website builders. These findings
           remain consistent across case studies and user surveys.
         </p>
+        <img src="./static/images/limitations.png" alt="Limitations" />
         <h2 class="title is-4">Case Studies</h2>
+        <p>
+          We help FOGG, a company that designs learning programmes for children,
+          to <b>build a website for their business need</b>. We take over their
+          existing websites built on Wix, and build on top of it to identify the
+          limitations of existing website builders. We also conduct a case study
+          on website builders such as WordPress and 10Web AI Builder to obtain a
+          deeper understanding of website builders' features and limitations.
+        </p>
+        <p>The followings are the limitations we found in the case studies:</p>
+
+        <ul class="limitations-list">
+          <li>Lack of customisability</li>
+          <ul>
+            <li>No native support on localisation</li>
+            <p>
+              There were no native support for localisation in Wix CMS (Wix
+              Booking Plugin). We had to use Wix Velo (Wix's JavaScript-based
+              development platform) to implement the localisation feature.
+              <details>
+                <summary>See Image</summary>
+                <img
+                  src="./static/images/case-study-limitations-localisation.png"
+                  alt="Lack of Localisation Support"
+                />
+              </details>
+            </p>
+
+            <li>Unsupported designs</li>
+            <p>
+              Some designs are not supported by the website builder, such as
+              calendars with custom designs or scroll bars. We had to either
+              implement workarounds using
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements"
+                >custom elements</a
+              >
+              or forgo certain design elements altogether.
+              <details>
+                <summary>See Image</summary>
+                <img
+                  src="./static/images/case-study-limitations-unsupported-design.png"
+                  alt="Unsupported Design"
+                />
+              </details>
+            </p>
+          </ul>
+          <li>Inaccurate documentation</li>
+
+          The documentation provided by the website builders is often inaccurate
+          or incomplete, making it difficult to understand how to use certain
+          features.
+          <br />For example:
+
+          <ul>
+            <li style="font-weight: normal">
+              Wix Bookings API returns erroneous error responses that are not
+              documented, leading to confusion.
+            </li>
+
+            <li style="font-weight: normal">
+              We also encountered some fields returned in the responses without
+              explanations on what they are used for.
+            </li>
+          </ul>
+
+          <details>
+            <summary>See Image</summary>
+            <img
+              src="./static/images/case-study-limitations-documentation.png"
+              alt="Inaccurate Documentation"
+            />
+          </details>
+          <p></p>
+          <li>Poor versioning tools</li>
+          We found that the versioning tools provided by the website builders
+          are not sufficient for our needs.
+          <ul>
+            <li style="font-weight: normal">
+              For example, Wix's versioning tools do not allow us to compare
+              different versions of the website.
+            </li>
+            <li style="font-weight: normal">
+              We also found that all editors shared the same revision. If one
+              user reverts, all users are forced to revert.
+            </li>
+            <li style="font-weight: normal">
+              We also found that the versioning tools only maintain a linear
+              history. Reverting will erase all changes after the recovered
+              snapshot.
+            </li>
+          </ul>
+          <details>
+            <summary>See Image</summary>
+            <img
+              src="./static/images/case-study-limitations-versioning.png"
+              alt="Poor Versioning Tools"
+            />
+          </details>
+        </ul>
+
+        <h2 class="title is-4">User Surveys</h2>
+        <p>
+          We collected 21 valid responses from the user survey after filtering
+          out those that did not meet the criteria (e.g., irrelevant responses,
+          responses finishing too quickly).
+          <br />The survey results show that the most common limitations in
+          website builders are <b>lack of customisability</b>,
+          <b>poor editing experience</b>, <b>inaccurate documentation</b>, and
+          <b>poor versioning tools</b>. These findings are consistent with the
+          case studies conducted.
+        </p>
         <img
           src="./static/images/user-survey-limitations.png"
-          alt="Limitations"
+          alt="Survey Results on Limitations"
+        />
+        <img
+          src="./static/images/user-survey-limitations-open.png"
+          alt="Survey Results on Limitations (Open-Ended)"
         />
       </div>
     </section>
 
     <section class="section">
       <div class="container is-max-desktop content">
-        <h2 class="title is-3">Partial Frontend UI Generation</h2>
+        <h2 class="title is-3">Proposed Solutions</h2>
+        <ol>
+          <li>
+            Lack of Customisability
+            <ul>
+              <li>
+                <b>Frontend UI Generation</b>: We propose a feature that allows
+                users to generate frontend UIs from full or partial designs and
+                sketches easily. This feature is implemented using a Large
+                Language Model (LLM) powered frontend UI generation
+                functionality.
+              </li>
+              <li>
+                <b>Plugins-of-Plugins System</b>: We propose a system that
+                allows users to create plugins that can be used by other
+                plugins, thus allowing for more customisability.
+              </li>
+              <li>
+                <b>HTML Importation System</b>: We propose a system that allows
+                users to import HTML code into the website builder, thus
+                allowing users to use existing HTML code in the website builder.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Inaccurate Documentation
+            <ul>
+              <li>
+                <b>Automated Documentation Generation</b>: We propose a feature
+                that automatically generates documentation for the website
+                builder, thus ensuring that the documentation is always
+                up-to-date and accurate.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Poor Versioning Tools
+            <ul>
+              <li>
+                <b>Git-powered Version Control</b>: We propose a system that
+                integrates Git for version control, allowing users to track
+                changes, revert to previous versions, and collaborate more
+                effectively.
+              </li>
+            </ul>
+          </li>
+        </ol>
+
+        <img src="./static/images/limitations.png" alt="Limitations" />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3">Experiment: Partial Frontend UI Generation</h2>
+        <h2 class="title is-4">Motivation</h2>
         <p>
           During our case study, we saw a pattern where
           <b>the business owner modified the design of some small components</b>
@@ -222,61 +423,215 @@
           This helps with customisability in website builders.
         </p>
         <img src="./static/images/motivation.png" alt="Motivation" />
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-desktop content">
-        <h2 class="title is-3">Frontend UI Generation Implementation</h2>
-        <p>
-          By extending
-          <a src="https://github.com/GrapesJS/grapesjs">GrapesJS</a>, an
-          open-source website builder, we create a website builder that allows
-          users to generate frontend UIs from full or partial designs and
-          sketches easily.
-        </p>
-        <video
-          id="teaser"
-          autoplay=""
-          muted=""
-          loop=""
-          playsinline=""
-          height="100%"
-        >
-          <source
-            src="https://github.com/user-attachments/assets/3ca65375-9732-47b1-964c-8c32e7926723"
-            type="video/mp4"
-          />
-        </video>
-        <video
-          id="teaser"
-          autoplay=""
-          muted=""
-          loop=""
-          playsinline=""
-          height="100%"
-        >
-          <source
-            src="https://github.com/user-attachments/assets/cf34c212-efee-4e42-9f90-bed627bdb7ba"
-            type="video/mp4"
-          />
-        </video>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-desktop content">
-        <h2 class="title is-3">Automated Documentation Generation</h2>
-        <p>
-          By using <a src="https://fastapi.tiangolo.com/">FastAPI</a>, we have
-          <b>automatically generated OpenAPI documentation</b> that can be
-          accessed through the route “/docs” in the server. This generation is
-          possible as FastAPI is based on the OpenAPI specification.
-        </p>
+        <h2 class="title is-4">Data Preparation</h2>
+        <h3 class="title is-5">High-fidelity Design</h3>
+        We duplicated the 25 web pages into a dataset of 50 web pages. For each
+        web page, we perform the following steps:
+        <ol>
+          <li>
+            We randomly chose one group of components we wished to remove
+            afterwards, which must be next to each other.
+          </li>
+          <li>
+            We took a full screenshot of the original web page and extracted the
+            screenshot of those components.
+          </li>
+          <li>
+            Afterwards, we manually removed that one chosen group of components
+            from the HTML code and replaced it with a &lt;missing&gt; tag.
+          </li>
+          <li>
+            We then applied uncss, a popular JavaScript library for minifying
+            CSS, to remove all the unused CSS from the codebase.
+          </li>
+        </ol>
+        We refer to this web page with the &lt;missing&gt; tag as “Partial HTML”
+        in the later sections.
         <img
-          src="./static/images/fastapi-doc.png"
-          alt="Automated Documentaiton Generation"
+          src="./static/images/methodology-design-to-code.png"
+          alt="High-fidelity Design Preparation"
         />
+        <h3 class="title is-5">Sketch</h3>
+        We perform the similar steps for the sketches, except that:
+        <ol>
+          <li>
+            We manually drew the sketches based on the one selected component
+            group.
+          </li>
+          <li>
+            We also overlapped our sketch to the selected component group in the
+            screenshot for prompting purpose later in the experiments.
+          </li>
+        </ol>
+        <img
+          src="./static/images/methodology-sketch-to-code.png"
+          alt="High-fidelity Sketch Preparation"
+        />
+        <h2 class="title is-4">Prompting Methods</h2>
+
+        We evaluate the VLLMs using four different methods:
+
+        <ol>
+          <li>Merging</li>
+          We remove the &lt;missing&gt; label from partial HTML and feed it
+          together with a merged screenshot of the new design/sketch. The VLLM
+          identifies and inserts or modifies the code as needed.
+          <li>Merging with Hint</li>
+          We keep the &lt;missing&gt; tag in the partial HTML as a hint, and ask
+          the VLLM to replace it using the merged screenshot of the new
+          design/sketch.
+          <li>Fixed-sized with Hint</li>
+          We provide partial HTML with the &lt;missing&gt; tag and the
+          design/sketch of the removed component group rendered at a fixed width
+          of 1280 pixels, based on previous studies and tool defaults.
+          <li>Varied-sized with Hint</li>
+          We provide partial HTML with the &lt;missing&gt; tag and the
+          design/sketch of the removed component group in varied sizes. This
+          accounts for users preparing designs/sketches without fixed widths,
+          ensuring readability and responsiveness even if sketches differ
+          slightly from the original layout.
+        </ol>
+        <img
+          src="./static/images/experiment-prompting-methods-1.png"
+          alt="Prompting Methods 1"
+        />
+        <img
+          src="./static/images/experiment-prompting-methods-2.png"
+          alt="Prompting Methods 2"
+        />
+        <h2 class="title is-4">Research Questions</h2>
+        <ol>
+          <li>
+            Which prompting method consistently produces the most accurate code?
+            <ul>
+              <li>
+                Open-source models:
+                <ul>
+                  <li>Merging</li>
+                  <li>Overall lower score</li>
+                </ul>
+              </li>
+              <li>
+                Commercial models:
+                <ul>
+                  <li>Fixed-Sized with Hint &amp; Varied-Sized with Hint</li>
+                  <li>Gemini 2.0 Flash and GPT-4o are top performers</li>
+                </ul>
+              </li>
+            </ul>
+
+            <img
+              src="./static/images/experiment-results-by-prompts.png"
+              alt="Heatmap of Results by Prompting Methods"
+            />
+          </li>
+          <li>
+            How consistent are the VLLMs in the tasks?
+            <ul>
+              <li>Open source models:</li>
+              <ul>
+                <li>100% success rate other than Gemma2:27b</li>
+                <li>
+                  Mostly generate in one go, sometimes need multiple iterations
+                </li>
+              </ul>
+              <li>Commercial models:</li>
+              <ul>
+                <li>100% success rate</li>
+                <li>Generate responses in one go</li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            How responsive is the code generated by VLLMs?
+            <image
+              src="./static/images/experiment-responsiveness.png"
+              alt="Responsiveness of Code Generated by VLLMs"
+            />
+            <ul>
+              <li>Overall low inter-viewport variance</li>
+              <li>Ranging from 0.01 to 0.02, most less than 0.01</li>
+              <li>
+                Generated websites remains responsive, as HTMLs in our test
+                dataset are all responsive
+              </li>
+            </ul>
+            <img
+              src="./static/images/experiment-results-viewports-variance.png"
+              alt="Inter-Viewport Variance of Generated Code"
+            />
+          </li>
+
+          <li>
+            Does the fidelity of the input affect VLLM's performance?
+            <br />
+            Instead of using the design, we use the sketch dataset to evaluate
+            the VLLMs' performance. We found the trend to be similar to the
+            high-fidelity design dataset, as shown in the results below:
+            <ul>
+              <li>Open-source models:</li>
+              <ul>
+                <li>Merging & Merging with Hint</li>
+                <li>Overall lower score</li>
+              </ul>
+              <li>Commercial models:</li>
+              <ul>
+                <li>Varied-Sized with Hint</li>
+                <li>High score</li>
+                <li>Gemini-2.0 Flash and GPT-4o remains top performers</li>
+              </ul>
+            </ul>
+
+            <img
+              src="./static/images/experiment-results-by-prompts-sketch.png"
+              alt="Heatmap of Results with Sketch By Prompt"
+            />
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3">Implementation</h2>
+        By extending
+        <a src="https://github.com/GrapesJS/grapesjs">GrapesJS</a>, an
+        open-source website builder, we create a website builder with our
+        proposed solutions:
+        <ol>
+          <li>Frontend UI Generation</li>
+          <li>Plugins-of-Plugins Systems</li>
+          <li>HTML Importation System</li>
+          <li>Automated Documentation Generation</li>
+        </ol>
+        We chose GrapesJS as it is:
+        <ul>
+          <li>
+            Simple and does not have complex features such as dashboards or
+            access control, making it much simpler to extend.
+          </li>
+          <li>
+            Its capability of importing HTML and CSS code provides at least two
+            benefits that align with our project vision:
+            <ol>
+              <li>
+                Users can directly modify the HTML and CSS while allowing drag
+                and drop. This feature addresses our survey respondent's
+                suggestion in the user survey, where he proposed that it would
+                be easier to implement some features in pure HTML and CSS. If a
+                feature is more straightforward to do in HTML, the user can go
+                directly for it.
+              </li>
+              <li>
+                It allows non-technical users to make minor modifications to the
+                existing layout of the websites, even though they may lack
+                technical knowledge.
+              </li>
+            </ol>
+          </li>
+        </ul>
+        The video demos of the implementation can be found
+        <a href="demo.html">here</a>.
       </div>
     </section>
 
